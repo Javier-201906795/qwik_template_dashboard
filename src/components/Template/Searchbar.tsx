@@ -4,7 +4,6 @@ export const Searchbar =  component$(() => {
     
     return(
         <>
-        <div class=" sm:block">
             <form  method="POST">
                 <div class="relative">
                 <button class="absolute top-1/2 left-0 -translate-y-1/2">
@@ -23,7 +22,6 @@ export const Searchbar =  component$(() => {
                     class="w-full bg-transparent pr-4 pl-9 focus:outline-none" />
                 </div>
             </form>
-        </div>
         </>
     )
 });
