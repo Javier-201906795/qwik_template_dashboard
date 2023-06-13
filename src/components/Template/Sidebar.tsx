@@ -1,20 +1,24 @@
-import { component$} from '@builder.io/qwik';
-import { Link } from '@builder.io/qwik-city';
+import { $, component$, useSignal} from '@builder.io/qwik';
+import { Link, useLocation } from '@builder.io/qwik-city';
 
 
 
 
 export const Sidebar =  component$(() => {
 
+    const location = useLocation();
+    const itemsdashboard = useSignal(false);
+    const itemshoverpage = "bg-graydark dark:bg-meta-4"
+
     
 
     return(
         <>
             <aside
-                class="absolute left-0 hrefp-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0  -translate-x-full"
+                class="absolute left-0 hrefp-0 z-9999 flex h-screen w-60 flex-col overflow-y-hidden bg-black duration-300 ease-linear  lg:static lg:translate-x-0  -translate-x-full"
                 >
                 {/* <!-- SIDEBAR HEADER --> */}
-                <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
+                <div class="flex items-center justify-between gap-2 px-3 py-5">
                     
                 <span class="text-2xl"> Logo</span>
                     <button
@@ -41,18 +45,22 @@ export const Sidebar =  component$(() => {
 
                 <div class="no-scrollbar flex flex-col overflow-y-auhref duration-300 ease-linear">
                     {/* <!-- Sidebar Menu --> */}
-                    <nav class="mt-5 py-4 px-4 lg:mt-9 lg:px-6">
+                    <nav class="mt-5 py-4 px-3 lg:mt-5 lg:px-1">
                     {/* <!-- Menu Group --> */}
                     <div>
                         <h3 class="mb-4 ml-4 text-sm font-semibold text-bodydark2">
                         MENU
                         </h3>
 
+                        
+
                         <ul class="mb-6 flex flex-col gap-1.5">
                         
-                        <Link
-                        href="#"
-                        class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4"
+                        <button
+                        class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/Template/" ? itemshoverpage : "" }`}
+                            
+                        
+                        onClick$={()=> {itemsdashboard.value = !itemsdashboard.value; console.log(itemsdashboard.value)}}
                         >
                             <svg
                             class="fill-current"
@@ -80,8 +88,8 @@ export const Sidebar =  component$(() => {
                             />
                             </svg>
                             Dashboard1
-                            <svg
-                            class={`absolute right-4 top-1/2 -translate-y-1/2 fill-current `}
+                            {/* <svg
+                            class="absolute right-4 top-1/2 -translate-y-1/2 fill-current "
                             width="20"
                             height="20"
                             viewBox="0 0 20 20"
@@ -94,14 +102,35 @@ export const Sidebar =  component$(() => {
                                 d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
                                 fill=""
                             />
+                            </svg> */}
+                            <svg class={`absolute right-4 top-1/2 -translate-y-1/2 fill-current  ${itemsdashboard.value ? 'rotate-180' : '' } `} 
+                            width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z" fill=""></path>
                             </svg>
-                        </Link>
+                            
+                        </button>
+
+                        {/* <!-- Dropdown Menu Start --> */}
+                        <div class={`translate transform overflow-hidden  ${itemsdashboard.value ? '' : 'hidden' }`}>
+                        <ul class="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
+                            <li>
+                            <a
+                                class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white"
+                                href="#"
+                                >eCommerce2</a>
+                            </li>
+                        </ul>
+                        </div>
+                        {/* <!-- Dropdown Menu End --> */}
+
+
+
 
                         {/* <!-- Menu Item Calendar --> */}
                         <li>
                             <Link
                             href="/calendar"
-                            class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 "
+                            class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/Calendar/" ? itemshoverpage : "" }`}
                             >
                             <svg
                                 class="fill-current"
@@ -125,7 +154,7 @@ export const Sidebar =  component$(() => {
                         <li>
                             <Link
                             href="/profile"
-                            class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 "
+                            class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/link/" ? itemshoverpage : "" }`}
                             >
                             <svg
                                 class="fill-current"
@@ -154,7 +183,7 @@ export const Sidebar =  component$(() => {
                         <li>
                             <Link
                             href="/tables"
-                            class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 "
+                            class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/link/" ? itemshoverpage : "" }`}
                             >
                             <svg
                                 class="fill-current"
@@ -190,7 +219,7 @@ export const Sidebar =  component$(() => {
                         <li>
                             <Link
                             href="/settings"
-                            class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 "
+                            class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/link/" ? itemshoverpage : "" }`}
                             >
                             <svg
                                 class="fill-current"
@@ -239,7 +268,7 @@ export const Sidebar =  component$(() => {
                         <li>
                             <Link
                             href="/chart"
-                            class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 "
+                            class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/link/" ? itemshoverpage : "" }`}
                             >
                             <svg
                                 class="fill-current"
