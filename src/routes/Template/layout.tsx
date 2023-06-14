@@ -22,11 +22,11 @@ export default component$(() => {
                 const cursorx = event.clientX
                 //Get size sidebar
                 const sidebar = document.getElementById("sidebar")
-                const sidebartamaniox = sidebar?.getBoundingClientRect().width
+                const sidebartamaniox = sidebar?.getBoundingClientRect()?.width || 240 //px
                 //Evaluae If its open
                 if (statusSidebar.value){
                     //Evaluate position cursor
-                    if (cursorx > parseInt(sidebartamaniox)){
+                    if (cursorx > sidebartamaniox){
                         statusSidebar.value = !statusSidebar.value
                     }
                 }
