@@ -82,7 +82,7 @@ export default component$(() => {
             
                 {/* <!-- Card Item Start --> */}
                 <div
-                class="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-lg ">
+                class="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-lg  ">
                 <div class="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 ">
                     <svg class="fill-primary " width="22" height="22" viewBox="0 0 22 22" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
