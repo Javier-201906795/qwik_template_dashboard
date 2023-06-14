@@ -22,7 +22,7 @@ export default component$(() => {
                 const cursorx = event.clientX
                 //Get size sidebar
                 const sidebar = document.getElementById("sidebar")
-                const sidebartamaniox = sidebar?.getBoundingClientRect()?.width || 240 //px
+                const sidebartamaniox = sidebar?.getBoundingClientRect()?.width || 260 //px
                 //Evaluae If its open
                 if (statusSidebar.value){
                     //Evaluate position cursor
