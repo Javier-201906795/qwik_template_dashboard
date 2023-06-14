@@ -1,8 +1,12 @@
-import { $, Slot, component$, useSignal } from '@builder.io/qwik';
+import { $, Slot, component$, useSignal, useStylesScoped$ } from '@builder.io/qwik';
 import { Header } from '~/components/Template/Header';
 import { Sidebar } from '~/components/Template/Sidebar';
 
+import style from '../../components/Template/sytle.css?inline'
+
 export default component$(() => {
+
+    useStylesScoped$(style)
 
     const statusSidebar = useSignal(false)
 
@@ -14,7 +18,6 @@ export default component$(() => {
     return(
         <>
         <div class="text-boxdark">
-            {/* <!-- ===== Page Wrapper Start ===== --> */}
             <div class="flex h-screen overflow-hidden"
             onClick$={async (event)=>{
             //CLOSE SIDEBAR
@@ -30,22 +33,19 @@ export default component$(() => {
                         statusSidebar.value = !statusSidebar.value
                     }
                 }
-                
-
             }}
             >
                 <Sidebar 
                 showSidebar = {statusSidebar.value}
                 closeSidebar = {chagestatusSidebar}
                 />
+
                 {/* <!-- ===== Content Area Start ===== --> */}
                 <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-                {/* <!-- ===== Header Start ===== --> */}
-                {/* <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
+
                 <Header
                 openSidebar = {chagestatusSidebar}
                 />
-                {/* <!-- ===== Header End ===== --> */}
 
                 {/* <!-- ===== Main Content Start ===== --> */}
                 <main>
@@ -59,7 +59,6 @@ export default component$(() => {
                 </div>
                 {/* <!-- ===== Content Area End ===== --> */}
             </div>
-            {/* <!-- ===== Page Wrapper End ===== --> */}
         </div>
         </>
     )

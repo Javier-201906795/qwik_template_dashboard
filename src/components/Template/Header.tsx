@@ -67,7 +67,7 @@ export const Header =  component$(({openSidebar}:Props) => {
                         <span class="h-12 w-12 rounded-full">
                             <img src="https://free-demo.tailadmin.com/src/images/user/user-01.png" alt="User" />
                         </span>
-
+                        {/* Flecha */}
                         <svg class={`hidden fill-current sm:block ${itemsprofile.value ? 'rotate-180' : ''}`} width="12" height="8"
                             viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -78,13 +78,13 @@ export const Header =  component$(({openSidebar}:Props) => {
 
                         {/* <!-- Dropdown Start --> */}
                         <div 
-                        class={`absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-lg text-graydark ${
+                        class={`absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-lg text-graydark  ${
                             itemsprofile.value ? '' : 'hidden'
                         }`}>
-                        <ul class="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 ">
-                            <li>
+                        <ul class="flex flex-col gap-2 border-b border-stroke px-4 py-4 ">
+                            <li class="hover:bg-graydark hover:bg-opacity-10 rounded-md py-2   duration-300 ease-in-out">
                             <a href="profile.html"
-                                class="flex items-center gap-3.5 text-xs font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+                                class="flex items-center gap-3.5 text-xs font-medium  duration-300 ease-in-out hover:text-primary   lg:text-base  ">
                                 <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -97,7 +97,7 @@ export const Header =  component$(({openSidebar}:Props) => {
                                 Mi cuenta
                             </a>
                             </li>
-                            <li>
+                            <li class="hover:bg-graydark hover:bg-opacity-10 rounded-md py-2   duration-300 ease-in-out">
                             <a href="#"
                                 class="flex items-center gap-3.5 text-xs font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
                                 <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
@@ -109,7 +109,7 @@ export const Header =  component$(({openSidebar}:Props) => {
                                 My Contacts
                             </a>
                             </li>
-                            <li>
+                            <li class="hover:bg-graydark hover:bg-opacity-10 rounded-md py-2   duration-300 ease-in-out">
                             <a href="settings.html"
                                 class="flex items-center gap-3.5 text-xs font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
                                 <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
@@ -126,7 +126,7 @@ export const Header =  component$(({openSidebar}:Props) => {
                             </li>
                         </ul>
                         <button
-                            class="flex items-center gap-3.5 py-4 px-6 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+                            class="flex items-center gap-3.5 py-4 px-6 text-sm font-medium duration-300 ease-in-out hover:text-white hover:bg-danger lg:text-base">
                             <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
