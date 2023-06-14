@@ -23,25 +23,15 @@ export const Header =  component$(({openSidebar}:Props) => {
                         class="z-99999 block rounded-sm border border-stroke bg-white p-1.5 shadow-sm  lg:hidden">
                         <span class="relative block h-5.5 w-5.5 cursor-pointer">
                         <span class="du-block absolute right-0 h-full w-full">
-                            <span
-                            class="relative top-0 left-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-[0] duration-200 ease-in-out ">
-                            </span>
-                            <span
-                            class="relative top-0 left-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-150 duration-200 ease-in-out ">
-                            </span>
-                            <span
-                            class="relative top-0 left-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-200 duration-200 ease-in-out ">
-                            </span>
+                            <span class="absolutetop-0 left-0 my-1 block h-0.5 w-full rounded-sm bg-black " ></span>
+                            <span class="relative  top-0 left-0 my-1 block h-0.5 w-full rounded-sm bg-black " ></span>
+                            <span class="relative top-0 left-0 my-1 block h-0.5 w-full rounded-sm bg-black " ></span>
                         </span>
-                        <span class="du-block absolute right-0 h-full w-full rotate-45">
-                            <span
-                            class="absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-black delay-300 duration-200 ease-in-out ">
-                            </span>
-                            <span
-                            class="delay-400 absolute left-0 top-2.5 block h-0.5 w-full rounded-sm bg-black duration-200 ease-in-out ">
-                            </span>
+                        
                         </span>
-                        </span>
+                        
+                        
+                        
                     </button>
                     {/* // <!-- Hamburger Toggle BTN --> */}
                     
@@ -70,8 +60,8 @@ export const Header =  component$(({openSidebar}:Props) => {
                     >
                         <a class="flex items-center gap-4" href="#">
                         <span class="hidden text-right lg:block">
-                            <span class="block text-sm font-medium text-black">Thomas Anree</span>
-                            <span class="block text-xs font-medium">UX Designer</span>
+                            <span class="block text-sm font-medium text-black">Juan Alcachofas</span>
+                            
                         </span>
 
                         <span class="h-12 w-12 rounded-full">
@@ -88,7 +78,7 @@ export const Header =  component$(({openSidebar}:Props) => {
 
                         {/* <!-- Dropdown Start --> */}
                         <div 
-                        class={`absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-lg ${
+                        class={`absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-lg text-graydark ${
                             itemsprofile.value ? '' : 'hidden'
                         }`}>
                         <ul class="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 ">

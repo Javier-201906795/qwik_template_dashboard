@@ -26,17 +26,18 @@ export const Sidebar =  component$(({showSidebar = false, closeSidebar}:Props) =
                 {/* <!-- SIDEBAR HEADER --> */}
                 <div class="flex items-center justify-between gap-2 px-3 py-5">
                     
-                <span class="text-2xl"> Logo</span>
+                <span class="text-2xl text-bodydark2"> Logo</span>
                     <button
                     aria-controls="sidebar"
                     class="block lg:hidden"
+                    onClick$={()=>{
+                        closeSidebar()
+                    }}
                     >
                     {/* Flecha  */}
                     <svg
-                        onClick$={()=>{
-                            closeSidebar()
-                        }}
-                        class="fill-current"
+                        
+                        class="fill-current text-bodydark1"
                         width="20"
                         height="18"
                         viewBox="0 0 20 18"
@@ -67,9 +68,9 @@ export const Sidebar =  component$(({showSidebar = false, closeSidebar}:Props) =
                         
                         <button
                         class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/Template/" ? itemshoverpage : "" }`}
-                            
-                        
-                        onClick$={()=> {itemsdashboard.value = !itemsdashboard.value; console.log(itemsdashboard.value)}}
+                        onClick$={()=> {
+                            itemsdashboard.value = !itemsdashboard.value; 
+                        }}
                         >
                             <svg
                             class="fill-current"

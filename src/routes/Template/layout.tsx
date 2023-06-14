@@ -8,13 +8,12 @@ export default component$(() => {
 
     const chagestatusSidebar = $(()=>{
         statusSidebar.value = !statusSidebar.value
-        console.log(statusSidebar.value)
     })
 
     
     return(
         <>
-        <div class="">
+        <div class="text-boxdark">
             {/* <!-- ===== Page Wrapper Start ===== --> */}
             <div class="flex h-screen overflow-hidden">
                 <Sidebar 
