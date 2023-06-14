@@ -15,7 +15,25 @@ export default component$(() => {
         <>
         <div class="text-boxdark">
             {/* <!-- ===== Page Wrapper Start ===== --> */}
-            <div class="flex h-screen overflow-hidden">
+            <div class="flex h-screen overflow-hidden"
+            onClick$={async (event)=>{
+            //CLOSE SIDEBAR
+                //Position cursor
+                const cursorx = event.clientX
+                //Get size sidebar
+                const sidebar = document.getElementById("sidebar")
+                const sidebartamaniox = sidebar?.getBoundingClientRect().width
+                //Evaluae If its open
+                if (statusSidebar.value){
+                    //Evaluate position cursor
+                    if (cursorx > parseInt(sidebartamaniox)){
+                        statusSidebar.value = !statusSidebar.value
+                    }
+                }
+                
+
+            }}
+            >
                 <Sidebar 
                 showSidebar = {statusSidebar.value}
                 closeSidebar = {chagestatusSidebar}

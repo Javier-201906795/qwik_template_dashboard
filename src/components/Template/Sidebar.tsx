@@ -19,6 +19,7 @@ export const Sidebar =  component$(({showSidebar = false, closeSidebar}:Props) =
     return(
         <>
             <aside
+                id = "sidebar"
                 class={`absolute left-0 hrefp-0 z-9999 flex h-screen w-60 flex-col overflow-y-hidden bg-black duration-300 ease-linear  lg:static lg:translate-x-0  -translate-x-full ${
                     showSidebar ? 'translate-x-0' : '-translate-x-full'
                 }`}
