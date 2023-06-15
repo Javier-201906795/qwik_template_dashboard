@@ -1,6 +1,14 @@
-import { component$ } from '@builder.io/qwik';
+import {  component$, } from '@builder.io/qwik';
+
+
+
+
 
 export const Chart01 =  component$(() => {
+
+    
+
+
     
     return(
         <>
@@ -46,7 +54,15 @@ export const Chart01 =  component$(() => {
                     </div>
                 </div>
                 <div>
-                    <div id="chartOne" class="-ml-5"></div>
+                    <div id="chartOne" class="-ml-5">
+                        
+
+                    <div id="chart">
+                        
+                    </div>
+
+
+                    </div>
                 </div>
             </div>
         </>

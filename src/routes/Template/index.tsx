@@ -1,13 +1,42 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useVisibleTask$ } from '@builder.io/qwik';
+import { routeLoader$ } from '@builder.io/qwik-city';
 import { Chart01 } from '~/components/Template/Chart01';
 import { ChatCard } from '~/components/Template/ChatCard';
 import { TableOne } from '~/components/Template/TableOne';
 
+import ApexCharts from "apexcharts";
+
+
+
+
+
+
+
+
 export default component$(() => {
     
+    const options = {
+        chart: {
+            type: 'bar'
+        },
+        series: [{
+            name: 'sales',
+            data: [30,40,45,50,49,60,70,91,125]
+        }],
+        xaxis: {
+            categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+        }
+    }
+
+    useVisibleTask$(()=>{
+        const grafica = new ApexCharts(document.querySelector("#chart"), options);
+        grafica.render()
+    })
+    
+
     return(
         <>
-            <div class="grid grid-cols-1 gap-2 lg:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5 ">
+            <div class="grid grid-cols-1 gap-2 lg:grid-cols-4 md:gap-6 xl:grid-cols-4 2xl:gap-7.5 ">
                 {/* <!-- Card Item Start --> */}
                 <div
                 class="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-lg ">
