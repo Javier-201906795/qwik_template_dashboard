@@ -1,6 +1,8 @@
 import { component$ } from '@builder.io/qwik';
 import { Chart01 } from '~/components/Template/Chart01';
 import { Chart02 } from '~/components/Template/Chart02';
+import { Chart03 } from '~/components/Template/Chart03';
+import { Chart04 } from '~/components/Template/Chart04';
 import { ChatCard } from '~/components/Template/ChatCard';
 import { TableOne } from '~/components/Template/TableOne';
 
@@ -179,8 +181,18 @@ export default component$(() => {
                     <Chart01 />
                 </div>
 
-                <div class="col-span-4">
+                <div class="flex col-span-4 ">
                     <Chart02 />
+                </div>
+
+                <div class="col-span-6 ">
+                    <Chart03 />
+                </div>
+
+                <div class="col-span-12 grid-rows-2 ">
+                    <Chart04
+                    largo = {12}
+                    />
                 </div>
 
                 <div class="col-span-8 ">
