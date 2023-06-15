@@ -1,5 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import { Chart01 } from '~/components/Template/Chart01';
+import { Chart02 } from '~/components/Template/Chart02';
 import { ChatCard } from '~/components/Template/ChatCard';
 import { TableOne } from '~/components/Template/TableOne';
 
@@ -172,19 +173,23 @@ export default component$(() => {
                 {/* <!-- Card Item End --> */}
             </div>
 
-            <div class="grid grid-cols-2  mt-4  gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5  ">
+            <div class="grid grid-cols-12   mt-4  gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5  ">
 
-                <div class="col-span-12 xl:col-span-8">
+                <div class="col-span-8 ">
                     <Chart01 />
                 </div>
 
-                <div class="col-span-12 xl:col-span-8">
+                <div class="col-span-4">
+                    <Chart02 />
+                </div>
+
+                <div class="col-span-8 ">
                     
                     <TableOne />
 
                 </div>
 
-                <div>
+                <div class="col-span-4 ">
 
                     <ChatCard />
 
