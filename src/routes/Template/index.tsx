@@ -1,5 +1,4 @@
-import { component$, useVisibleTask$ } from '@builder.io/qwik';
-import { routeLoader$ } from '@builder.io/qwik-city';
+import { component$ } from '@builder.io/qwik';
 import { Chart01 } from '~/components/Template/Chart01';
 import { ChatCard } from '~/components/Template/ChatCard';
 import { TableOne } from '~/components/Template/TableOne';
@@ -18,7 +17,7 @@ export default component$(() => {
 
 
 
-    
+
     return(
         <>
             <div class="grid grid-cols-1 gap-2 lg:grid-cols-4 md:gap-6 xl:grid-cols-4 2xl:gap-7.5 ">

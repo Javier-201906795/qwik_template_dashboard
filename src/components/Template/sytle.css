@@ -169,7 +169,3 @@ span.flatpickr-weekday,
   display: none !important;
 }
 
-#chart {
-  max-width: 650px;
-  margin: 35px auto;
-}

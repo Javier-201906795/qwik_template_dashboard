@@ -136,7 +136,7 @@ export const Chart01 =  component$(() => {
 
 
     useVisibleTask$(()=>{
-        const grafica = new ApexCharts(document.querySelector("#chart"), chartOneOptions);
+        const grafica = new ApexCharts(document.querySelector("#chartOne"), chartOneOptions);
         grafica.render()
     })
 
@@ -186,13 +186,6 @@ export const Chart01 =  component$(() => {
                 </div>
                 <div>
                     <div id="chartOne" class="-ml-5">
-                        
-
-                    <div id="chart">
-                        
-                    </div>
-
-
                     </div>
                 </div>
             </div>
