@@ -6,13 +6,13 @@ import moment from 'moment';
 
 
 interface Props {
-    IDdivContainer: string;
+    IDdivContainer?: string;
 }
 
 
 export const Chart04 =  component$(({ IDdivContainer }:Props) => {
     //initialize variable
-    const widthDivContainer = useSignal(1200)
+    const widthDivContainer = useSignal(1000)
 
     const getSizeDiv = $(()=>{
       //get width 
