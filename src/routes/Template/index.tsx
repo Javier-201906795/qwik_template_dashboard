@@ -1,4 +1,4 @@
-import { $, component$, useOn, useOnDocument, useSignal, useStore, useVisibleTask$ } from '@builder.io/qwik';
+import { $, component$, useOnWindow, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import { Chart01 } from '~/components/Template/Chart01';
 import { Chart02 } from '~/components/Template/Chart02';
 import { Chart03 } from '~/components/Template/Chart03';
@@ -33,6 +33,7 @@ export default component$(() => {
 
     })
 
+    
 
     return(
         <>

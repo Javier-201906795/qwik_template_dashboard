@@ -1,4 +1,4 @@
-import { component$, useVisibleTask$ } from '@builder.io/qwik';
+import { $, component$, useOnWindow, useVisibleTask$ } from '@builder.io/qwik';
 import ApexCharts from "apexcharts";
 import moment from 'moment';
 
@@ -12,6 +12,16 @@ interface Props {
 
 export const Chart04 =  component$(({ size=512 }:Props) => {
 
+
+    //See if document chage size (width)
+    useOnWindow(
+        "resize",
+        $(() => {
+            const window1 = window.innerWidth;
+            
+            console.log(window1)
+        })
+    );
 
     useVisibleTask$(()=>{
         
