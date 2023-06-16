@@ -1,4 +1,4 @@
-import { component$ } from '@builder.io/qwik';
+import { $, component$, useOn, useOnDocument, useSignal, useStore, useVisibleTask$ } from '@builder.io/qwik';
 import { Chart01 } from '~/components/Template/Chart01';
 import { Chart02 } from '~/components/Template/Chart02';
 import { Chart03 } from '~/components/Template/Chart03';
@@ -17,12 +17,26 @@ import { TableOne } from '~/components/Template/TableOne';
 
 export default component$(() => {
 
+    const container01width = useSignal(200)
 
 
+
+    useVisibleTask$(()=>{
+        //get width container01
+        const container = document.getElementById('container01')
+        if (container){
+            const width = container.offsetWidth;
+            container01width.value = width
+            console.log('container',container01width.value)
+        }
+
+
+    })
 
 
     return(
         <>
+        <div id='container01'>
             <div class="grid grid-cols-1 gap-2 lg:grid-cols-4 md:gap-6 xl:grid-cols-4 2xl:gap-7.5 ">
                 {/* <!-- Card Item Start --> */}
                 <div
@@ -191,7 +205,7 @@ export default component$(() => {
 
                 <div class="col-span-12 grid-rows-2 ">
                     <Chart04
-                    largo = {12}
+                    size = {container01width.value}
                     />
                 </div>
 
@@ -208,6 +222,7 @@ export default component$(() => {
                 </div>
 
             </div>
+        </div>
         </>
     )
 });

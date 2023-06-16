@@ -3,17 +3,17 @@ import ApexCharts from "apexcharts";
 import moment from 'moment';
 
 
-interface ItemProps {
-    largo?: number;
+
+
+interface Props {
+    size?: number;
 }
 
 
-export const Chart04 =  component$<ItemProps>((props) => {
+export const Chart04 =  component$(({ size=512 }:Props) => {
 
 
     useVisibleTask$(()=>{
-        console.log(props.largo)
-
         
         const chartfourOptions = {
             series: [
@@ -71,6 +71,7 @@ export const Chart04 =  component$<ItemProps>((props) => {
             }
           ],
           chart: {
+            width: size,
             type: 'rangeBar'
           },
           plotOptions: {
@@ -118,13 +119,7 @@ export const Chart04 =  component$<ItemProps>((props) => {
             chartfour.render();
         }
 
-        //obtener tamaño div
-        const div2 = document.getElementById('chartfour')
-        if (div2){
-        const ancho = div2.offsetWidth;
-        const altura = div2.offsetHeight
-        console.log(ancho,altura)
-        }
+        
     })
 
 
