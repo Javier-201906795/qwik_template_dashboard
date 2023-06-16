@@ -1,4 +1,4 @@
-import { $, component$, useOnWindow, useSignal, useVisibleTask$ } from '@builder.io/qwik';
+import { $, component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import ApexCharts from "apexcharts";
 import moment from 'moment';
 
