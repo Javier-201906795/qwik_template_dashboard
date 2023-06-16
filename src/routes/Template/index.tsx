@@ -17,21 +17,7 @@ import { TableOne } from '~/components/Template/TableOne';
 
 export default component$(() => {
 
-    const container01width = useSignal(200)
-
-
-
-    useVisibleTask$(()=>{
-        //get width container01
-        const container = document.getElementById('container01')
-        if (container){
-            const width = container.offsetWidth;
-            container01width.value = width
-            console.log('container',container01width.value)
-        }
-
-
-    })
+    
 
     
 
@@ -206,7 +192,7 @@ export default component$(() => {
 
                 <div class="col-span-12 grid-rows-2 ">
                     <Chart04
-                    size = {container01width.value}
+                    IDdivContainer='container01'
                     />
                 </div>
 

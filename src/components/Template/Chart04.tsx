@@ -1,4 +1,4 @@
-import { $, component$, useOnWindow, useVisibleTask$ } from '@builder.io/qwik';
+import { $, component$, useOnWindow, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import ApexCharts from "apexcharts";
 import moment from 'moment';
 
@@ -6,24 +6,40 @@ import moment from 'moment';
 
 
 interface Props {
-    size?: number;
+    IDdivContainer: string;
+    autosize?: boolean;
 }
 
 
-export const Chart04 =  component$(({ size=512 }:Props) => {
+export const Chart04 =  component$(({ IDdivContainer, autosize = true }:Props) => {
+    //initialize variable
+    const widthDivContainer = useSignal(1200)
+
+    const getSizeDiv = $(()=>{
+      //get width 
+      let container = null
+      if(IDdivContainer){
+      container = document.getElementById(IDdivContainer)
+      }
+      if (container){
+          const width = container.offsetWidth;
+          return width
+      }
+      return null
+    })
+
+    
+
+    useVisibleTask$(async ()=>{
+
+      await getSizeDiv().then((res)=>{
+        console.log('size',res)
+        res ? widthDivContainer.value = res : null
+        console.log(widthDivContainer.value)
+      })
 
 
-    //See if document chage size (width)
-    useOnWindow(
-        "resize",
-        $(() => {
-            const window1 = window.innerWidth;
-            
-            console.log(window1)
-        })
-    );
-
-    useVisibleTask$(()=>{
+      //--- CHART ---
         
         const chartfourOptions = {
             series: [
@@ -81,7 +97,7 @@ export const Chart04 =  component$(({ size=512 }:Props) => {
             }
           ],
           chart: {
-            width: size,
+            width: widthDivContainer.value,
             type: 'rangeBar'
           },
           plotOptions: {
@@ -128,9 +144,23 @@ export const Chart04 =  component$(({ size=512 }:Props) => {
             );
             chartfour.render();
         }
-
+        //---END CHART---
         
     })
+
+
+     //See if document chage size (width)
+    useOnWindow(
+      "resize",
+      $(() => {
+        //validate if autisize its on
+        if (autosize) {
+          //change size
+          const window1 = window.innerWidth;
+          console.log(window1)
+        }
+      })
+  );
 
 
     return(
@@ -139,7 +169,9 @@ export const Chart04 =  component$(({ size=512 }:Props) => {
             <div class="flex mb-3  mx-auto justify-center  ">
 
                 <div class="mb-2 ">
-                    <div id="chartfour" class="mx-auto flex justify-center items-center" ></div>
+                    <div id="chartfour" class="mx-auto flex justify-center items-center" >
+
+                    </div>
                 </div>
 
             </div>
