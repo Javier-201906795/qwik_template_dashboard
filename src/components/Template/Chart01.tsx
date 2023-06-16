@@ -64,9 +64,7 @@ export const Chart01 =  component$(() => {
           curve: "straight",
         },
     
-        markers: {
-          size: 0,
-        },
+        
         labels: {
           show: false,
           position: "top",

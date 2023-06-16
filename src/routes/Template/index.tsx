@@ -190,7 +190,7 @@ export default component$(() => {
                     <Chart03 />
                 </div>
 
-                <div class="col-span-12 grid-rows-2 ">
+                <div class="col-span-12 grid-rows-2 flex-auto">
                     <Chart04
                     IDdivContainer='container01'
                     />

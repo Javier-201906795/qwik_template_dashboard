@@ -28,123 +28,125 @@ export const Chart04 =  component$(({ IDdivContainer, autosize = true }:Props) =
       return null
     })
 
+    const chartOptions = $((size : number)=>{ 
+      return {
+      series: [
+      {
+        name: 'Bob',
+        data: [
+          {
+            x: 'Design',
+            y: [
+              new Date('2019-03-05').getTime(),
+              new Date('2019-03-08').getTime()
+            ]
+          },
+          {
+            x: 'Code',
+            y: [
+              new Date('2019-03-08').getTime(),
+              new Date('2019-03-11').getTime()
+            ]
+          },
+          {
+            x: 'Test',
+            y: [
+              new Date('2019-03-11').getTime(),
+              new Date('2019-03-16').getTime()
+            ]
+          }
+        ]
+      },
+      {
+        name: 'Joe',
+        data: [
+          {
+            x: 'Design',
+            y: [
+              new Date('2019-03-02').getTime(),
+              new Date('2019-03-05').getTime()
+            ]
+          },
+          {
+            x: 'Code',
+            y: [
+              new Date('2019-03-06').getTime(),
+              new Date('2019-03-09').getTime()
+            ]
+          },
+          {
+            x: 'Test',
+            y: [
+              new Date('2019-03-10').getTime(),
+              new Date('2019-03-19').getTime()
+            ]
+          }
+        ]
+      }
+    ],
+    chart: {
+      width: size,
+      type: 'rangeBar'
+    },
+    plotOptions: {
+      bar: {
+        horizontal: true
+      }
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function(val:any) {
+        const a = moment(val[0])
+        const b = moment(val[1])
+        const diff = b.diff(a, 'days')
+        return diff + (diff > 1 ? ' days' : ' day')
+      }
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'light',
+        type: 'vertical',
+        shadeIntensity: 0.25,
+        gradientToColors: undefined,
+        inverseColors: true,
+        opacityFrom: 1,
+        opacityTo: 1,
+        stops: [50, 0, 100, 100]
+      }
+    },
+    xaxis: {
+      type: 'datetime'
+    },
+    legend: {
+      position: 'top'
+    }
+      }
+    })
+
     
 
     useVisibleTask$(async ()=>{
 
+      //-- Get size --
       await getSizeDiv().then((res)=>{
-        console.log('size',res)
         res ? widthDivContainer.value = res : null
-        console.log(widthDivContainer.value)
       })
 
+      //-- Option Chart --
+      const chartfourOptions = await chartOptions(widthDivContainer.value)
 
-      //--- CHART ---
-        
-        const chartfourOptions = {
-            series: [
-            {
-              name: 'Bob',
-              data: [
-                {
-                  x: 'Design',
-                  y: [
-                    new Date('2019-03-05').getTime(),
-                    new Date('2019-03-08').getTime()
-                  ]
-                },
-                {
-                  x: 'Code',
-                  y: [
-                    new Date('2019-03-08').getTime(),
-                    new Date('2019-03-11').getTime()
-                  ]
-                },
-                {
-                  x: 'Test',
-                  y: [
-                    new Date('2019-03-11').getTime(),
-                    new Date('2019-03-16').getTime()
-                  ]
-                }
-              ]
-            },
-            {
-              name: 'Joe',
-              data: [
-                {
-                  x: 'Design',
-                  y: [
-                    new Date('2019-03-02').getTime(),
-                    new Date('2019-03-05').getTime()
-                  ]
-                },
-                {
-                  x: 'Code',
-                  y: [
-                    new Date('2019-03-06').getTime(),
-                    new Date('2019-03-09').getTime()
-                  ]
-                },
-                {
-                  x: 'Test',
-                  y: [
-                    new Date('2019-03-10').getTime(),
-                    new Date('2019-03-19').getTime()
-                  ]
-                }
-              ]
-            }
-          ],
-          chart: {
-            width: widthDivContainer.value,
-            type: 'rangeBar'
-          },
-          plotOptions: {
-            bar: {
-              horizontal: true
-            }
-          },
-          dataLabels: {
-            enabled: true,
-            formatter: function(val:any) {
-              const a = moment(val[0])
-              const b = moment(val[1])
-              const diff = b.diff(a, 'days')
-              return diff + (diff > 1 ? ' days' : ' day')
-            }
-          },
-          fill: {
-            type: 'gradient',
-            gradient: {
-              shade: 'light',
-              type: 'vertical',
-              shadeIntensity: 0.25,
-              gradientToColors: undefined,
-              inverseColors: true,
-              opacityFrom: 1,
-              opacityTo: 1,
-              stops: [50, 0, 100, 100]
-            }
-          },
-          xaxis: {
-            type: 'datetime'
-          },
-          legend: {
-            position: 'top'
-          }
-        }
-
-        const chartSelector = document.querySelectorAll("#chartfour");
-        
-        if (chartSelector.length) {
-            const chartfour = new ApexCharts(
-            document.querySelector("#chartfour"),
-            chartfourOptions
-            );
-            chartfour.render();
-        }
-        //---END CHART---
+      //-- Select div chart
+      const chartSelector = document.querySelectorAll("#chartfour");
+      
+      if (chartSelector.length) {
+          const chartfour = new ApexCharts(
+          document.querySelector("#chartfour"),
+          chartfourOptions
+          );
+          chartfour.render();
+      }
+      //---END CHART---
         
     })
 
@@ -157,7 +159,8 @@ export const Chart04 =  component$(({ IDdivContainer, autosize = true }:Props) =
         if (autosize) {
           //change size
           const window1 = window.innerWidth;
-          console.log(window1)
+          console.log('cambio tamaño',window1)
+          
         }
       })
   );
