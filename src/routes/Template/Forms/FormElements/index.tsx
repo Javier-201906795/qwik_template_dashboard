@@ -1,6 +1,8 @@
 import { component$, useSignal } from '@builder.io/qwik';
 
+
 export default component$(() => {
+
 
     const checkbox01 = useSignal(false)
     const checkbox02 = useSignal(false)
@@ -88,10 +90,10 @@ export default component$(() => {
                                     }}
                                     />
                                     <div class={`block h-8 w-14 rounded-full bg-boxdark transition ${
-                                        checkbox01.value && 'bg-primary'
+                                        checkbox01.value ? 'bg-primary' : ''
                                     }`}></div>
                                     <div class={`absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition${
-                                        checkbox01.value && '!right-1 !translate-x-full '
+                                        checkbox01.value ? '!right-1 !translate-x-full ' : ''
                                     }`}></div>
                                 </div>
                                 </label>
@@ -106,14 +108,14 @@ export default component$(() => {
                                     }}
                                     />
                                     <div class={`block h-8 w-14 rounded-full bg-boxdark transition ${
-                                        checkbox02.value && 'bg-primary'
+                                        checkbox02.value ? 'bg-primary' : ''
                                     }`}></div>
                                     <div class={` absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white transition
                                     ${
-                                        checkbox02.value && '!right-1 !translate-x-full ' 
+                                        checkbox02.value ? '!right-1 !translate-x-full ' : ''
                                     }`}
                                     >
-                                    <span class={`hidden ${checkbox02.value && '!block text-black'}`} >
+                                    <span class={`hidden ${checkbox02.value ? '!block text-black' : ''}`} >
                                         <svg class="stroke-current  text-black" width="11" height="8" viewBox="0 0 11 8" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -121,7 +123,7 @@ export default component$(() => {
                                             fill="black" stroke="black" stroke-width="0.4"></path>
                                         </svg>
                                     </span>
-                                    <span class={`${checkbox02.value && 'hidden'}`}>
+                                    <span class={`${checkbox02.value ? 'hidden' : ''}`}>
                                         <svg class="h-4 w-4 stroke-current" fill="none" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -332,36 +334,50 @@ export default component$(() => {
                         </div>
 
                         {/* <!-- Checkbox and radio --> */}
-                        {/* <div
-                            class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                            <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-                            <h3 class="font-medium text-black dark:text-white">
+                        <div
+                            class="rounded-sm border border-stroke bg-white shadow-xl ">
+                            <div class="border-b border-stroke py-4 px-6.5 ">
+                            <h3 class="font-medium text-black ">
                                 Checkbox and radio
                             </h3>
                             </div>
                             <div class="flex flex-col gap-5.5 p-6.5">
-                            <div x-data="{ checkboxToggle: false }">
+                            {/* Checkbox03 */}
+                            <div >
                                 <label for="checkboxLabelOne" class="flex cursor-pointer select-none items-center">
                                 <div class="relative">
                                     <input type="checkbox" id="checkboxLabelOne" class="sr-only"
-                                    @change="checkboxToggle = !checkboxToggle" />
-                                    <div :class="checkboxToggle && 'border-primary bg-gray dark:bg-transparent'"
-                                    class="mr-4 flex h-5 w-5 items-center justify-center rounded border">
-                                    <span :class="checkboxToggle && 'bg-primary'" class="h-2.5 w-2.5 rounded-sm"></span>
+                                    onClick$={()=>{
+                                        checkbox03.value = !checkbox03.value 
+                                    }} />
+                                    <div 
+                                    class={`mr-4 flex h-5 w-5 items-center justify-center rounded border ${
+                                        checkbox03.value ? 'border-primary bg-gray' : ''
+                                    }`}>
+                                    <span class={`h-2.5 w-2.5 rounded-sm ${
+                                        checkbox03.value ? 'bg-primary' : ''
+                                    }`}></span>
                                     </div>
                                 </div>
                                 Checkbox Text
                                 </label>
                             </div>
-
-                            <div x-data="{ checkboxToggle: false }">
+                            {/* Checkbox04 */}
+                            <div>
                                 <label for="checkboxLabelTwo" class="flex cursor-pointer select-none items-center">
                                 <div class="relative">
                                     <input type="checkbox" id="checkboxLabelTwo" class="sr-only"
-                                    @change="checkboxToggle = !checkboxToggle" />
-                                    <div :class="checkboxToggle && 'border-primary bg-gray dark:bg-transparent'"
-                                    class="mr-4 flex h-5 w-5 items-center justify-center rounded border">
-                                    <span :class="checkboxToggle && '!opacity-100'" class="opacity-0">
+                                    onClick$={()=>{
+                                        checkbox04.value = !checkbox04.value
+                                    }}
+                                    />
+                                    <div 
+                                    class={`mr-4 flex h-5 w-5 items-center justify-center rounded border ${
+                                        checkbox04.value ? 'border-primary bg-gray' : ''
+                                    }`}>
+                                    <span class={`opacity-0 ${
+                                        checkbox04.value ? '!opacity-100' : ''
+                                    }`}>
                                         <svg width="11" height="8" viewBox="0 0 11 8" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -374,59 +390,9 @@ export default component$(() => {
                                 Checkbox Text
                                 </label>
                             </div>
-
-                            <div x-data="{ checkboxToggle: false }">
-                                <label for="checkboxLabelThree" class="flex cursor-pointer select-none items-center">
-                                <div class="relative">
-                                    <input type="checkbox" id="checkboxLabelThree" class="sr-only"
-                                    @change="checkboxToggle = !checkboxToggle" />
-                                    <div :class="checkboxToggle && 'border-primary bg-gray dark:bg-transparent'"
-                                    class="box mr-4 flex h-5 w-5 items-center justify-center rounded border">
-                                    <span :class="checkboxToggle && '!opacity-100'" class="text-primary opacity-0">
-                                        <svg class="h-3.5 w-3.5 stroke-current" fill="none" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M6 18L18 6M6 6l12 12"></path>
-                                        </svg>
-                                    </span>
-                                    </div>
-                                </div>
-                                Checkbox Text
-                                </label>
-                            </div>
-
-                            <div x-data="{ checkboxToggle: false }">
-                                <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
-                                <div class="relative">
-                                    <input type="checkbox" id="checkboxLabelFour" class="sr-only"
-                                    @change="checkboxToggle = !checkboxToggle" />
-                                    <div :class="checkboxToggle && 'border-primary'"
-                                    class="mr-4 flex h-5 w-5 items-center justify-center rounded-full border">
-                                    <span :class="checkboxToggle && '!bg-primary'"
-                                        class="h-2.5 w-2.5 rounded-full bg-transparent">
-                                    </span>
-                                    </div>
-                                </div>
-                                Checkbox Text
-                                </label>
-                            </div>
-
-                            <div x-data="{ checkboxToggle: false }">
-                                <label for="checkboxLabelFive" class="flex cursor-pointer select-none items-center">
-                                <div class="relative">
-                                    <input type="checkbox" id="checkboxLabelFive" class="sr-only"
-                                    @change="checkboxToggle = !checkboxToggle" />
-                                    <div :class="checkboxToggle && '!border-4'"
-                                    class="box mr-4 flex h-5 w-5 items-center justify-center rounded-full border border-primary">
-                                    <span class="h-2.5 w-2.5 rounded-full bg-white dark:bg-transparent">
-                                    </span>
-                                    </div>
-                                </div>
-                                Checkbox Text
-                                </label>
-                            </div>
+                            
                             </div> 
-                        </div>*/}
+                        </div>
 
                         
                     </div>   
