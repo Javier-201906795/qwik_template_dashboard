@@ -188,7 +188,44 @@ export default component$(() => {
                             </div>
                         </div>
 
-                    </div>    
+                    </div> 
+                    <div class="flex flex-col gap-9">
+                        {/* <!-- Textarea Fields --> */}
+                        <div
+                            class="rounded-sm border border-stroke bg-white shadow-xl  ">
+                            <div class="border-b border-stroke py-4 px-6.5 ">
+                            <h3 class="font-medium text-black ">
+                                Textarea Fields
+                            </h3>
+                            </div>
+                            <div class="flex flex-col gap-5.5 p-6.5">
+                            <div>
+                                <label class="mb-3 block font-medium text-sm text-black ">
+                                Default textarea
+                                </label>
+                                <textarea rows={6} placeholder="Default textarea"
+                                class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter "></textarea>
+                            </div>
+
+
+                            <div>
+                                <label class="mb-3 block font-medium text-sm text-black ">
+                                Active textarea
+                                </label>
+                                <textarea rows={6} placeholder="Active textarea"
+                                class="w-full rounded-lg border-[1.5px] border-primary bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter "></textarea>
+                            </div>
+
+                            <div>
+                                <label class="mb-3 block font-medium text-sm text-black ">
+                                Disabled textarea
+                                </label>
+                                <textarea rows={6} disabled={true} placeholder="Disabled textarea"
+                                class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter "></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    </div>   
                 </div>
                 {/* <!-- ====== Form Elements Section End --> */}
             </div>
