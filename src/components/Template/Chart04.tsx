@@ -7,11 +7,10 @@ import moment from 'moment';
 
 interface Props {
     IDdivContainer: string;
-    autosize?: boolean;
 }
 
 
-export const Chart04 =  component$(({ IDdivContainer, autosize = true }:Props) => {
+export const Chart04 =  component$(({ IDdivContainer }:Props) => {
     //initialize variable
     const widthDivContainer = useSignal(1200)
 
@@ -203,19 +202,6 @@ export const Chart04 =  component$(({ IDdivContainer, autosize = true }:Props) =
     })
 
 
-     //See if document chage size (width)
-    useOnWindow(
-      "resize",
-      $(() => {
-        //validate if autisize its on
-        if (autosize) {
-          //change size
-          const window1 = window.innerWidth;
-          console.log('cambio tamaño',window1)
-          
-        }
-      })
-  );
 
 
     return(
