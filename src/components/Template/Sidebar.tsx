@@ -222,8 +222,8 @@ export const Sidebar =  component$(({showSidebar = false, closeSidebar}:Props) =
                         {/* <!-- Menu Item Tables --> */}
                         <li>
                             <Link
-                            href="/tables"
-                            class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/link/" ? itemshoverpage : "" }`}
+                            href="/Template/Tables/"
+                            class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/Template/Tables/" ? itemshoverpage : "" }`}
                             >
                             <svg
                                 class="fill-current"
@@ -258,8 +258,8 @@ export const Sidebar =  component$(({showSidebar = false, closeSidebar}:Props) =
                         {/* <!-- Menu Item Settings --> */}
                         <li>
                             <Link
-                            href="/settings"
-                            class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/link/" ? itemshoverpage : "" }`}
+                            href="/Template/Settings/"
+                            class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/Template/Settings/" ? itemshoverpage : "" }`}
                             >
                             <svg
                                 class="fill-current"
