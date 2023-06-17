@@ -69,7 +69,7 @@ export const Sidebar =  component$(({showSidebar = false, closeSidebar}:Props) =
                         <ul class="mb-6 flex flex-col gap-1.5">
                         
                         <button
-                        class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/Template/" ? itemshoverpage : "" }`}
+                        class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-meta-4 ${location.url.pathname === "/Template/" ? itemshoverpage : "" }`}
                         onClick$={()=> {
                             itemsdashboard.value = !itemsdashboard.value; 
                         }}
@@ -130,7 +130,7 @@ export const Sidebar =  component$(({showSidebar = false, closeSidebar}:Props) =
                         <li>
                             <Link
                             href="/Template/Profile/"
-                            class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/link/" ? itemshoverpage : "" }`}
+                            class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out  dark:hover:bg-meta-4 ${location.url.pathname === "/link/" ? itemshoverpage : "" }`}
                             >
                             <svg
                                 class="fill-current"
@@ -156,7 +156,7 @@ export const Sidebar =  component$(({showSidebar = false, closeSidebar}:Props) =
 
                         
                         <button
-                        class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-white dark:hover:bg-meta-4 ${location.url.pathname === "/Template/Forms/" ? itemshoverpage : "" }`}
+                        class={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out   ${location.url.pathname == "/Template/Forms/FormElements/" ? itemshoverpage : "hover:bg-meta-4" }`}
                         onClick$={()=> {
                             itemsforms.value = !itemsforms.value; 
                         }}
